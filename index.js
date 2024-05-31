@@ -12,11 +12,12 @@ const app = express()
 app.use(express.json())
 
 const server = http.createServer(app)
-const { PORT } = process.env || 4000
 
 app.use(cors())
 
-mongoose.connect('mongodb://localhost:27017/telegram-clone')
+mongoose.connect(
+  'mongodb+srv://itsgkram-qwertyuiop:qwertyuiop@cluster0.gkx09l7.mongodb.net/telegram-clone',
+)
 const db = mongoose.connection
 db.on('connected', () => {
   console.log('MongoDB connected')
@@ -24,14 +25,14 @@ db.on('connected', () => {
 
 const io = new Server(server, {
   cors: {
-    origin: 'http://localhost:3000',
+    origin: 'https://chatapp-frontend-pi-puce.vercel.app/',
   },
 })
 
-server.listen(PORT, () => {
-  console.log('PORT', PORT)
+server.listen(4000, () => {
+  console.log('PORT', 4000)
 
-  console.log(`Server is running on http://localhost:${PORT}`)
+  console.log(`Server is running on http://localhost:${4000}`)
 })
 
 app.get('/', (req, res) => {

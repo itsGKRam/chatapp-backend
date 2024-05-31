@@ -17,7 +17,7 @@ userRoutes.post('/auth', (req, res) => {
       if (user) {
         const accessToken = jwt.sign(
           user.toObject(),
-          process.env.ACCESS_TOKEN_SECRET,
+          'dhbcuhwbcugywqucbjhwqgycbjdcgyu',
         )
         return res.send({
           accessToken,
@@ -32,7 +32,7 @@ userRoutes.post('/auth', (req, res) => {
         newUser.save().then((user) => {
           const accessToken = jwt.sign(
             user.toObject(),
-            process.env.ACCESS_TOKEN_SECRET,
+            'dhbcuhwbcugywqucbjhwqgycbjdcgyu',
           )
           return res.send({
             accessToken,

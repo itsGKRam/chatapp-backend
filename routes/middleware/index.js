@@ -12,7 +12,7 @@ export const getUserbyAccessToken = async (req, res, next) => {
   const accessToken = authorization.split(' ')[1]
 
   try {
-    const data = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET)
+    const data = jwt.verify(accessToken, 'dhbcuhwbcugywqucbjhwqgycbjdcgyu')
     const user = await User.findOne({ email: data.email })
 
     if (!user) {
